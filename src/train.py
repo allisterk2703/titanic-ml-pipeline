@@ -1,4 +1,5 @@
 import joblib
+import os
 from sklearn.ensemble import RandomForestClassifier
 from preprocess import load_and_preprocess_data
 
@@ -9,6 +10,7 @@ def train_model():
     model.fit(X_train, y_train)
     
     # Sauvegarde du modèle
+    os.makedirs("models", exist_ok=True)
     joblib.dump(model, "models/model.pkl")
     print("Modèle entraîné et sauvegardé !")
 
